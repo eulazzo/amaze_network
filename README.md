@@ -27,9 +27,6 @@
 
 
 # Politique
-
-## Link do deploy no Herok
-
 - Backend for politique social media, with register, login, create/delete/follow/unfollow users etc.
 
 
