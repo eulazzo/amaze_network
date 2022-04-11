@@ -60,9 +60,10 @@
     
   ```
   * Output: (email,password and pseudo is mandatory, will return a error in case you forgot)
-```{
-	  "user": "625383b327ea69ca9eff24ad"
-  }
+```
+   {
+      "user": "625383b327ea69ca9eff24ad"
+   }
  ```
 
 
@@ -70,7 +71,8 @@
 * Método: GET
 * Path: `/user`
 * Output: 
-```[
+```
+    [
 	{
 		"_id": "625379aa930bdc846ce5b2af",
 		"pseudo": "eulazzo",
@@ -99,7 +101,7 @@
 		"updatedAt": "2022-04-11T01:45:29.552Z",
 		"__v": 0
 	}
-]
+    ] 
 ```
 
 
@@ -107,7 +109,8 @@
   * Método: GET
   * Path: `/user/:id`
   * Output:
-```{
+```
+  {
       "_id": "625379aa930bdc846ce5b2af",
       "pseudo": "eulazzo",
       "email": "lazaro@ctemplar.com",
@@ -127,11 +130,12 @@
   * Input:
   ```
    {
-		"bio": "Write here you new bio"
+     "bio": "Write here you new bio"
    }
   ```
   * Output:
-```{
+```
+   {
     "_id": "62535e753c44e2ddf6f5d793",
     "__v": 0,
     "bio": "Then you new bio will be updated",
@@ -156,7 +160,8 @@
    }
   ```
   * Output:
-```{
+```
+ {
     "_id": "62535e753c44e2ddf6f5d793",
     "__v": 0,
     "bio": "Then you new bio will be updated",
@@ -166,7 +171,7 @@
     "likes": [],
     "picture": "./uploads/profile/random-user.png",
     "updatedAt": "2022-04-11T02:32:32.907Z"
-   }
+ }
  ```
  
  * ### deleteUser
@@ -175,13 +180,13 @@
   * Input: _id
    ```
    {
-	   "_id":"62535e753c44e2ddf6f5d793"
+      "_id":"62535e753c44e2ddf6f5d793"
    }
    ```
   * Output (Sucess)
 ```
    {
-	   "message": "Succesfully deleted. "
+	"message": "Succesfully deleted. "
    }
  ```
   
