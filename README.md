@@ -251,7 +251,7 @@
 
  <li> Node.Js </li>
  <li> MongoDB </li>
- <li> Javasript </li>
+ <li> Javascript </li>
  <li> Express </li>
  <li> Mongoose </li>
  <li> Jwt Authentication </li>
