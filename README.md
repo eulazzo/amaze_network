@@ -229,7 +229,7 @@
   * Input:  
    ```
     {
-	    "idToFollow":"625383b327ea69ca9eff24ad"   
+	    "idToUnfollow":"625383b327ea69ca9eff24ad"   
     }
    ```
   * Ouput
