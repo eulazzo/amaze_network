@@ -56,7 +56,7 @@
     }
     
   ```
-  * Output: (email,password and pseudo is mandatory, will return a error in case you forgot)
+  * Output: (email,password and pseudo is mandatory, will return a error in case one of them is missing)
 ```
    {
       "user": "625383b327ea69ca9eff24ad"
