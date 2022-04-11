@@ -63,12 +63,11 @@
    }
  ```
 
-
-### getAllOrders
-* Método: GET
-* Path: `/user`
-* Output: 
-```
+* ### getAllOrders
+  * Método: GET
+  * Path: `/user`
+  * Output: 
+ ```
     [
 	{
 		"_id": "625379aa930bdc846ce5b2af",
@@ -99,7 +98,7 @@
 		"__v": 0
 	}
     ] 
-```
+  ```
 
 
 * ### userInfo
@@ -122,9 +121,9 @@
  ```
  
  * ### updateUser
-  * Método: GET
-  * Path: `/user/:id`
-  * Input:
+   * Método: GET
+   * Path: `/user/:id`
+   * Input:
   ```
    {
      "bio": "Write here you new bio"
@@ -148,12 +147,12 @@
    
   
  * ### updateUser
-  * Método: GET
-  * Path: `/user/:id`
-  * Input:
+   * Método: GET
+   * Path: `/user/:id`
+   * Input:
   ```
    {
-		"bio": "Write here you new bio"
+	"bio": "Write here you new bio"
    }
   ```
   * Output:
@@ -172,9 +171,9 @@
  ```
  
  * ### deleteUser
-  * Método: DELETE
-  * Path: `/user/:id`
-  * Input: _id
+   * Método: DELETE
+   * Path: `/user/:id`
+   * Input: _id
    ```
    {
       "_id":"62535e753c44e2ddf6f5d793"
@@ -183,7 +182,7 @@
   * Output (Sucess)
 ```
    {
-	"message": "Succesfully deleted. "
+       "message": "Succesfully deleted. "
    }
  ```
   
@@ -193,12 +192,12 @@
   ```
  
   * ### follow
-  * Método: PATCH
-  * Path: `/user/follow/:id`
-  * Input:  
+    * Método: PATCH
+    * Path: `/user/follow/:id`
+    * Input:  
    ```
     {
-	    "idToFollow":"625383b327ea69ca9eff24ad"   
+	"idToFollow":"625383b327ea69ca9eff24ad"   
     }
    ```
   * Ouput
@@ -221,12 +220,12 @@
   ```
   
   * ### unfollow
-  * Método: PATCH
-  * Path: `/user/unfollow/:id`
-  * Input:  
+    * Método: PATCH
+    * Path: `/user/unfollow/:id`
+    * Input:  
    ```
     {
-	    "idToUnfollow":"625383b327ea69ca9eff24ad"   
+       "idToUnfollow":"625383b327ea69ca9eff24ad"   
     }
    ```
   * Ouput
