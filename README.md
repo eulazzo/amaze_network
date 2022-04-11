@@ -225,7 +225,7 @@
   
   * ### unfollow
   * Método: PATCH
-  * Path: `/user/follow/:id`
+  * Path: `/user/unfollow/:id`
   * Input:  
    ```
     {
