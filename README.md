@@ -56,12 +56,12 @@
      }
      
     ```
-  * Output: (email,password and pseudo is mandatory, will return a error in case one of them is missing)
-    ```
+   * Output: (email,password and pseudo is mandatory, will return a error in case one of them is missing)
+     ```
      {
        "user": "625383b327ea69ca9eff24ad"
      }
-    ```
+     ```
  
 * ### Login
   * Method: POST
@@ -73,7 +73,7 @@
 	"password":"12345678"
      }
     ```
-  * Ouput
+   * Ouput
     ```
       { "user": "6254bf7deba132bfff54d07a" }
     ```
@@ -159,8 +159,8 @@
        "bio": "Write here you new bio"
       }
      ```
-  * Output:
-    ```
+   * Output:
+     ```
      {
        "_id": "62535e753c44e2ddf6f5d793",
        "__v": 0,
@@ -171,8 +171,8 @@
        "likes": [],
        "picture": "./uploads/profile/random-user.png",
        "updatedAt": "2022-04-11T02:32:32.907Z"
-     }
-    ```
+      }
+     ```
   
  * ### updateUser
    * Method: GET
@@ -183,20 +183,20 @@
 	"bio": "Write here you new bio"
       }
      ```
-  * Output:
-    ```
-     {
-      "_id": "62535e753c44e2ddf6f5d793",
-      "__v": 0,
-      "bio": "Then you new bio will be updated",
-      "createdAt": "2022-04-11T02:32:32.907Z",
-      "followers": [],
-      "following": [],
-      "likes": [],
-      "picture": "./uploads/profile/random-user.png",
-      "updatedAt": "2022-04-11T02:32:32.907Z"
-     }
-    ```
+   * Output:
+     ```
+       {
+         "_id": "62535e753c44e2ddf6f5d793",
+         "__v": 0,
+         "bio": "Then you new bio will be updated",
+         "createdAt": "2022-04-11T02:32:32.907Z",
+         "followers": [],
+         "following": [],
+         "likes": [],
+         "picture": "./uploads/profile/random-user.png",
+         "updatedAt": "2022-04-11T02:32:32.907Z"
+       }
+     ```
  
  * ### deleteUser
    * Method: DELETE
@@ -207,17 +207,17 @@
 	   "_id":"62535e753c44e2ddf6f5d793"
          }
      ```
-  * Output (Sucess)
-    ```
+   * Output (Sucess)
+     ```
      {
        "message": "Succesfully deleted. "
      }
-    ```
+     ```
   
-  * Ouput (failure)
-    ```
+   * Ouput (failure)
+     ```
       ID unknown: 65393cecf7155ba4bac2edc
-    ```
+     ```
  
   * ### follow
     * Method: PATCH
@@ -228,24 +228,24 @@
 	  "idToFollow":"625383b327ea69ca9eff24ad"   
         }
        ```
-  * Ouput
-    ```
-     {
-        "_id": "625379aa930bdc846ce5b2af",
-        "pseudo": "eulazzo",
-        "email": "lazaro@ctemplar.com",
-        "password": "$2b$10$U/K53Ic8NC8BcMcBhy2..OFacdNDNJv.fFuOGdBy0SseAvaM8wZKm",
-        "picture": "./uploads/profile/random-user.png",
-        "followers": [],
-        "following": [
-          "625383b327ea69ca9eff24ad"
-        ],
-        "likes": [],
-        "createdAt": "2022-04-11T00:43:22.139Z",
-        "updatedAt": "2022-04-11T01:45:29.506Z",
-        "__v": 0
-     }
-    ```
+    * Ouput
+      ```
+       {
+	  "_id": "625379aa930bdc846ce5b2af",
+	  "pseudo": "eulazzo",
+	  "email": "lazaro@ctemplar.com",
+	  "password": "$2b$10$U/K53Ic8NC8BcMcBhy2..OFacdNDNJv.fFuOGdBy0SseAvaM8wZKm",
+	  "picture": "./uploads/profile/random-user.png",
+	  "followers": [],
+	  "following": [
+	  "625383b327ea69ca9eff24ad"
+	  ],
+	  "likes": [],
+	  "createdAt": "2022-04-11T00:43:22.139Z",
+	  "updatedAt": "2022-04-11T01:45:29.506Z",
+	  "__v": 0
+       }
+      ```
   
   * ### unfollow
     * Method: PATCH
@@ -256,9 +256,9 @@
        "idToUnfollow":"625383b327ea69ca9eff24ad"   
        }
       ```
-  * Ouput
-    ```
-     {
+    * Ouput
+      ```
+      {
         "_id": "625379aa930bdc846ce5b2af",
         "pseudo": "eulazzo",
         "email": "lazaro@ctemplar.com",
