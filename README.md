@@ -35,36 +35,36 @@
 * Clone this repo;
 * run `npm install` to add all depedencies;
 * Create an `.env` inside the `config` folder and fill in all the necessary keys:
-   ```
+  ```
    PORT= 
    MONGO_URL= 
-   ```
+  ```
 
 * run `npm run start` to start the server
 
 ## Endpoints
 
 * ### signUp
-  * Método: POST
+  * Method: POST
   * Path: `/user/register`
   * input: 
-  ```
-    {
+    ```
+     {
        "email":"lorena@ctemplar.com",
        "password":"12345678",
        "pseudo":"ilorena"
-    }
-    
-  ```
+     }
+     
+    ```
   * Output: (email,password and pseudo is mandatory, will return a error in case one of them is missing)
-```
-   {
-      "user": "625383b327ea69ca9eff24ad"
-   }
- ```
+    ```
+     {
+       "user": "625383b327ea69ca9eff24ad"
+     }
+    ```
  
 * ### Login
-  * Método: POST
+  * Method: POST
   * Path: `/user/login`
   * Input:  
     ```
@@ -94,10 +94,10 @@
     ```
  -->
 * ### getAllOrders
-  * Método: GET
+  * Method: GET
   * Path: `/user`
   * Output: 
- ```
+    ```
     [
 	{
 		"_id": "625379aa930bdc846ce5b2af",
@@ -128,15 +128,15 @@
 		"__v": 0
 	}
     ] 
-  ```
+    ```
 
 
 * ### userInfo
-  * Método: GET
+  * Method: GET
   * Path: `/user/:id`
   * Output:
-```
-  {
+    ```
+    {
       "_id": "625379aa930bdc846ce5b2af",
       "pseudo": "eulazzo",
       "email": "lazaro@ctemplar.com",
@@ -147,91 +147,89 @@
       "createdAt": "2022-04-11T00:43:22.139Z",
       "updatedAt": "2022-04-11T01:50:23.374Z",
       "__v": 0
-   }
- ```
+    }
+    ```
  
  * ### updateUser
-   * Método: GET
+   * Method: GET
    * Path: `/user/:id`
    * Input:
-  ```
-   {
-     "bio": "Write here you new bio"
-   }
-  ```
+     ```
+      {
+       "bio": "Write here you new bio"
+      }
+     ```
   * Output:
-```
-   {
-    "_id": "62535e753c44e2ddf6f5d793",
-    "__v": 0,
-    "bio": "Then you new bio will be updated",
-    "createdAt": "2022-04-11T02:32:32.907Z",
-    "followers": [],
-    "following": [],
-    "likes": [],
-    "picture": "./uploads/profile/random-user.png",
-    "updatedAt": "2022-04-11T02:32:32.907Z"
-   }
- ```
-
-   
+    ```
+     {
+       "_id": "62535e753c44e2ddf6f5d793",
+       "__v": 0,
+       "bio": "Then you new bio will be updated",
+       "createdAt": "2022-04-11T02:32:32.907Z",
+       "followers": [],
+       "following": [],
+       "likes": [],
+       "picture": "./uploads/profile/random-user.png",
+       "updatedAt": "2022-04-11T02:32:32.907Z"
+     }
+    ```
   
  * ### updateUser
-   * Método: GET
+   * Method: GET
    * Path: `/user/:id`
    * Input:
-  ```
-   {
+     ```
+      {
 	"bio": "Write here you new bio"
-   }
-  ```
+      }
+     ```
   * Output:
-```
- {
-    "_id": "62535e753c44e2ddf6f5d793",
-    "__v": 0,
-    "bio": "Then you new bio will be updated",
-    "createdAt": "2022-04-11T02:32:32.907Z",
-    "followers": [],
-    "following": [],
-    "likes": [],
-    "picture": "./uploads/profile/random-user.png",
-    "updatedAt": "2022-04-11T02:32:32.907Z"
- }
- ```
+    ```
+     {
+      "_id": "62535e753c44e2ddf6f5d793",
+      "__v": 0,
+      "bio": "Then you new bio will be updated",
+      "createdAt": "2022-04-11T02:32:32.907Z",
+      "followers": [],
+      "following": [],
+      "likes": [],
+      "picture": "./uploads/profile/random-user.png",
+      "updatedAt": "2022-04-11T02:32:32.907Z"
+     }
+    ```
  
  * ### deleteUser
-   * Método: DELETE
+   * Method: DELETE
    * Path: `/user/:id`
    * Input: _id
-   ```
-   {
-      "_id":"62535e753c44e2ddf6f5d793"
-   }
-   ```
+     ```
+	 {
+	   "_id":"62535e753c44e2ddf6f5d793"
+         }
+     ```
   * Output (Sucess)
-```
-   {
+    ```
+     {
        "message": "Succesfully deleted. "
-   }
- ```
+     }
+    ```
   
   * Ouput (failure)
-  ```
-     ID unknown: 65393cecf7155ba4bac2edc
-  ```
+    ```
+      ID unknown: 65393cecf7155ba4bac2edc
+    ```
  
   * ### follow
-    * Método: PATCH
+    * Method: PATCH
     * Path: `/user/follow/:id`
     * Input:  
-   ```
-    {
-	"idToFollow":"625383b327ea69ca9eff24ad"   
-    }
-   ```
+      ```
+       {
+	  "idToFollow":"625383b327ea69ca9eff24ad"   
+        }
+       ```
   * Ouput
-  ```
+    ```
      {
         "_id": "625379aa930bdc846ce5b2af",
         "pseudo": "eulazzo",
@@ -247,17 +245,17 @@
         "updatedAt": "2022-04-11T01:45:29.506Z",
         "__v": 0
      }
-  ```
+    ```
   
   * ### unfollow
-    * Método: PATCH
+    * Method: PATCH
     * Path: `/user/unfollow/:id`
     * Input:  
-   ```
-    {
+      ```
+      {
        "idToUnfollow":"625383b327ea69ca9eff24ad"   
-    }
-   ```
+       }
+      ```
   * Ouput
     ```
      {
