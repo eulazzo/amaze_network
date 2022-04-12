@@ -47,7 +47,7 @@
 * ### signUp
   * Method: POST
   * Path: `/user/register`
-  * input: 
+  * input:
     ```
      {
        "email":"lorena@ctemplar.com",
@@ -55,7 +55,7 @@
        "pseudo":"ilorena"
      }
      
-    ```
+    ``` 
    * Output: (email,password and pseudo is mandatory, will return a error in case one of them is missing)
      ```
      {
@@ -74,9 +74,9 @@
      }
     ```
    * Ouput
-    ```
+     ```
       { "user": "6254bf7deba132bfff54d07a" }
-    ```
+     ```
 <!-- 
 * ### Logout
   * Método: GET
@@ -179,9 +179,7 @@
    * Path: `/user/:id`
    * Input:
      ```
-      {
-	"bio": "Write here you new bio"
-      }
+       {"bio": "Write here you new bio"}
      ```
    * Output:
      ```
@@ -209,9 +207,7 @@
      ```
    * Output (Sucess)
      ```
-     {
-       "message": "Succesfully deleted. "
-     }
+      { "message": "Succesfully deleted. "}
      ```
   
    * Ouput (failure)
@@ -224,10 +220,10 @@
     * Path: `/user/follow/:id`
     * Input:  
       ```
-       {
+        {
 	  "idToFollow":"625383b327ea69ca9eff24ad"   
         }
-       ```
+      ```
     * Ouput
       ```
        {
@@ -258,7 +254,7 @@
       ```
     * Ouput
       ```
-      {
+       {
         "_id": "625379aa930bdc846ce5b2af",
         "pseudo": "eulazzo",
         "email": "lazaro@ctemplar.com",
@@ -270,8 +266,8 @@
         "createdAt": "2022-04-11T00:43:22.139Z",
         "updatedAt": "2022-04-11T01:50:23.374Z",
         "__v": 0
-      }
-    ```
+       }
+      ```
 
  
 ## Techs used
