@@ -62,7 +62,37 @@
       "user": "625383b327ea69ca9eff24ad"
    }
  ```
-
+ 
+* ### Login
+  * Método: POST
+  * Path: `/user/login`
+  * Input:  
+    ```
+     {
+	"email":"luis@ctemplar.com",
+	"password":"12345678"
+     }
+    ```
+  * Ouput
+    ```
+      { "user": "6254bf7deba132bfff54d07a" }
+    ```
+<!-- 
+* ### Logout
+  * Método: GET
+  * Path: `/user/logout`
+  * Input:  
+    ```
+     {
+	"email":"luis@ctemplar.com",
+	"password":"12345678"
+     }
+    ```
+  * Ouput
+    ```
+     "No cookies for you"
+    ```
+ -->
 * ### getAllOrders
   * Método: GET
   * Path: `/user`
@@ -229,7 +259,7 @@
     }
    ```
   * Ouput
-  ```
+    ```
      {
         "_id": "625379aa930bdc846ce5b2af",
         "pseudo": "eulazzo",
@@ -243,9 +273,8 @@
         "updatedAt": "2022-04-11T01:50:23.374Z",
         "__v": 0
       }
-  ```
- 
- 
+    ```
+
  
 ## Techs used
 
