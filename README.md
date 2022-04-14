@@ -26,8 +26,9 @@
 </p>
 
 
-# Politique
-- Backend for politique social media, with register, login, create/delete/follow/unfollow users etc.
+# Stackinflow
+- Based on stack overflow, `stack flow` is a social media that helps programmers find a solution to a problem they are facing.
+- Backend for stackinflow social media, with register, login, create/delete/follow/unfollow users etc.
 
 
 ## DOCUMENTATION 
