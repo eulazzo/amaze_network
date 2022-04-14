@@ -1,7 +1,7 @@
 
 
 <h1 align="center">
-  Politique 
+  Stackinflow 
 </h1>
   
  
@@ -209,11 +209,11 @@
  * ### deleteUser
    * Method: DELETE
    * Path: `/user/:id`
-   * Input: _id
+   * Input: `_id`
      ```
 	 {
 	   "_id":"62535e753c44e2ddf6f5d793"
-         }
+        }
      ```
    * Output (Sucess)
      ```
@@ -278,14 +278,136 @@
         "__v": 0
        }
       ```
-
- 
+      
+ * ### createPost
+   * Method: POST
+   * Path: `/user/post`
+   * Input:  
+     ```
+	 {
+	  "posterId":"625379aa930bdc846ce5b2af",
+	  "message": "My first post",
+	  "video": "https://www.youtube.com/",
+	  "likers": [],
+	  "comments": []
+	  }
+     ```
+   * Ouput
+     ```
+         {
+	  "posterId": "625379aa930bdc846ce5b2af",
+	  "message": "My first post",
+	  "video": "https://www.youtube.com/",
+	  "likers": [],
+	  "comments": [],
+	  "_id": "62583036cdc1b19cbb354afe",
+	  "createdAt": "2022-04-14T14:31:18.633Z",
+	  "updatedAt": "2022-04-14T14:31:18.633Z",
+          "__v": 0
+	  }
+     ```
+  
+* ### readPost
+  * Method: GET
+  * Path: `/api/post`
+  * Ouput
+    ```
+      [
+	{
+		"_id": "62583036cdc1b19cbb354afe",
+		"posterId": "625379aa930bdc846ce5b2af",
+		"message": "My first post",
+		"video": "https://www.youtube.com/",
+		"likers": [],
+		"comments": [],
+		"createdAt": "2022-04-14T14:31:18.633Z",
+		"updatedAt": "2022-04-14T14:31:18.633Z",
+		"__v": 0
+	},
+	{
+		"_id": "625831ebcdc1b19cbb354b03",
+		"posterId": "625379aa930bdc846ce5b2af",
+		"message": "My second post",
+		"video": "https://www.youtube.com/",
+		"likers": [],
+		"comments": [],
+		"createdAt": "2022-04-14T14:38:35.046Z",
+		"updatedAt": "2022-04-14T14:38:35.046Z",
+		"__v": 0
+	}
+      ]
+    ```
+    
+  * ### updatePost
+  * Method: POST
+  * Path: `/api/post/:id`
+  * input:
+    ```
+     {
+      "message": "My second post edited"
+     }
+    ```
+  * Ouput
+    ```
+     {
+	"_id": "62583036cdc1b19cbb354afe",
+	"posterId": "625379aa930bdc846ce5b2af",
+	"message": "My second post edited",
+	"video": "https://www.youtube.com/",
+	"likers": [],
+	"comments": [],
+	"createdAt": "2022-04-14T14:31:18.633Z",
+	"updatedAt": "2022-04-14T17:13:16.920Z",
+	"__v": 0
+      }
+    ```
+    
+    
+* ### deletePost
+  * Method: DELETE
+  * Path: `/api/post/:id`
+  * Ouput
+    ```
+      {"Message":"Post deleted"}
+    ```
 ## Techs used
 
- <li> Node.Js </li>
- <li> MongoDB </li>
- <li> Javascript </li>
- <li> Express </li>
- <li> Mongoose </li>
- <li> Jwt Authentication </li>
- <li> Bcrypt </li>
+<table>
+   
+  <thead>
+    <th>Back-end</th>
+    <th>Front-end</th>
+  </thead>
+   
+  <tbody>
+    <tr>
+      <td>Node.js</td>
+      <td>ReactJS</td>
+    </tr>
+     <tr>
+	<td>JWT Authentication</td>
+	<td></td>
+     </tr>
+     <tr>
+      <td>MongoDB</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Javascript</td>
+      <td>CSS</td>
+    </tr>
+    <tr>
+      <td>Express</td>
+      <td>Axios</td>
+    </tr>
+    <tr>
+      <td>Mongoose</td>
+      <td>React Hooks</td>
+    </tr>
+    <tr>
+     <td>Bcrypt</td>
+     <td></td>
+    </tr>
+  </tbody>
+  
+</table>
