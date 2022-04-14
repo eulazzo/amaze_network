@@ -387,12 +387,12 @@
       <td>ReactJS</td>
     </tr>
      <tr>
-	<td>Jwt Authentication</td>
+	<td>JWT Authentication</td>
 	<td></td>
      </tr>
      <tr>
       <td>MongoDB</td>
-      <td>Socket.io</td>
+      <td></td>
     </tr>
     <tr>
       <td>Javascript</td>
