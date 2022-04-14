@@ -209,7 +209,7 @@
  * ### deleteUser
    * Method: DELETE
    * Path: `/user/:id`
-   * Input: _id
+   * Input: `_id`
      ```
 	 {
 	   "_id":"62535e753c44e2ddf6f5d793"
