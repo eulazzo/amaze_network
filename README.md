@@ -372,8 +372,6 @@
     ```
 ## Techs used
 
- <li> Bcrypt </li>
-
 <table>
    
   <thead>
