@@ -43,6 +43,52 @@ module.exports.deletePost = async (req, res) => {
     return res.status(400).json({ "ID unknown: ": req.params.id });
 
   await PostModel.findByIdAndRemove(req.params.id)
-    .then((docs) => res.status(200).json("Post deleted"))
+    .then((_docs) => res.status(200).json("Post deleted"))
     .catch((err) => console.log("Delete error: ", err));
+};
+
+module.exports.likePost = async (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).json({ "ID unknown: ": req.params.id });
+
+  try {
+    await PostModel.findByIdAndUpdate(
+      req.params.id,
+      { $addToSet: { likers: req.body.id } },
+      { new: true }
+    );
+
+    await UserModel.findByIdAndUpdate(
+      req.body.id,
+      { $addToSet: { likes: req.params.id } },
+      { new: true }
+    )
+      .then((docs) => res.status(200).json(docs))
+      .catch((err) => res.status(400).send(err));
+  } catch (error) {
+    return res.status(400).send(err);
+  }
+};
+
+module.exports.unlikePost = async (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).json({ "ID unknown: ": req.params.id });
+
+  try {
+    await PostModel.findByIdAndUpdate(
+      req.params.id,
+      { $pull: { likers: req.body.id } },
+      { new: true }
+    );
+
+    await UserModel.findByIdAndUpdate(
+      req.body.id,
+      { $pull: { likes: req.params.id } },
+      { new: true }
+    )
+      .then((docs) => res.status(200).json(docs))
+      .catch((err) => res.status(400).send(err));
+  } catch (error) {
+    return res.status(400).send(err);
+  }
 };
