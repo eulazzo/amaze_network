@@ -379,3 +379,35 @@
  <li> Mongoose </li>
  <li> Jwt Authentication </li>
  <li> Bcrypt </li>
+
+<table>
+   
+  <thead>
+    <th>Back-end</th>
+    <th>Front-end</th>
+  </thead>
+   
+  <tbody>
+    <tr>
+      <td>Node.js</td>
+      <td>ReactJS</td>
+    </tr>
+     <tr>
+      <td>MongoDB</td>
+      <td>Socket.io</td>
+    </tr>
+    <tr>
+      <td>Javascript</td>
+      <td>CSS</td>
+    </tr>
+    <tr>
+      <td>Express</td>
+      <td>Axios</td>
+    </tr>
+    <tr>
+      <td>Mongoose</td>
+      <td>React Hooks</td>
+    </tr>
+  </tbody>
+  
+</table>
