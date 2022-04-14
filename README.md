@@ -372,12 +372,6 @@
     ```
 ## Techs used
 
- <li> Node.Js </li>
- <li> MongoDB </li>
- <li> Javascript </li>
- <li> Express </li>
- <li> Mongoose </li>
- <li> Jwt Authentication </li>
  <li> Bcrypt </li>
 
 <table>
@@ -393,6 +387,10 @@
       <td>ReactJS</td>
     </tr>
      <tr>
+	<td>Jwt Authentication</td>
+	<td></td>
+     </tr>
+     <tr>
       <td>MongoDB</td>
       <td>Socket.io</td>
     </tr>
@@ -407,6 +405,10 @@
     <tr>
       <td>Mongoose</td>
       <td>React Hooks</td>
+    </tr>
+    <tr>
+     <td>Bcrypt</td>
+     <td></td>
     </tr>
   </tbody>
   
