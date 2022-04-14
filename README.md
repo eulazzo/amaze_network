@@ -79,12 +79,12 @@
      ```
    * Ouput (FAILURE - Case enter with wrong password or email)
      ```
-     	{
+       {
 	 "errors": {
 	   "email": "",
 	   "password": "Email and  password doesn't match!"
 	   }
- 	 }
+        }
      ```
 <!-- 
 * ### Logout
