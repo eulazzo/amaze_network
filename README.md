@@ -73,9 +73,18 @@
 	"password":"12345678"
      }
     ```
-   * Ouput
+   * Ouput (SUCCESS)
      ```
       { "user": "6254bf7deba132bfff54d07a" }
+     ```
+   * Ouput (FAILURE - Case enter with wrong password or email)
+     ```
+     	{
+	 "errors": {
+	   "email": "",
+	   "password": "Email and  password doesn't match!"
+	   }
+ 	 }
      ```
 <!-- 
 * ### Logout
