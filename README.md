@@ -371,7 +371,7 @@
       {"Message":"Post deleted"}
     ```
     
- * ### comentPost
+* ### comentPost
   * Method: POST
   * Path: `/api/post/comment-post/:id`
   * Input
@@ -379,15 +379,15 @@
        {
 	  "commenterId":"625379aa930bdc846ce5b2af",
 	  "commenterPseudo":"eulazzo",
-	  "text":"This time i will do this in a right way"
+	  "text":"This is a comment"
 	}
     ```
-   * Output:
-     ```
+  * Output:
+    ```
       {
 	 "_id": "62586a9f9f57d8bcd27f4dd8",
 	 "posterId": "625379aa930bdc846ce5b2af",
-	 "message": "My first post",
+	 "message": "This is a comment",
 	 "video": "https://www.youtube.com/",
 	 "likers": [],
 	 "comments": [
@@ -403,7 +403,7 @@
 	 "updatedAt": "2022-04-16T00:50:09.025Z",
 	 "__v": 0
       }
-     ```
+    ```
 ## Techs used
 
 <table>
