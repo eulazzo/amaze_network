@@ -338,7 +338,7 @@
       ]
     ```
     
-  * ### updatePost
+* ### updatePost
   * Method: POST
   * Path: `/api/post/:id`
   * input:
@@ -415,8 +415,8 @@
       }
     ```
     
-* Output:
-  ```
+  * Output:
+    ```
       {
 	"_id": "62586a9f9f57d8bcd27f4dd8",
 	"posterId": "625379aa930bdc846ce5b2af",
@@ -436,7 +436,7 @@
 	"updatedAt": "2022-04-16T15:20:15.336Z",
 	"__v": 0
       }
-  ``` 
+    ``` 
   
   
   
