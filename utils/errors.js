@@ -6,10 +6,10 @@ module.exports.signUpErrors = (err) => {
   if (checkErrorType("pseudo")) errors.pseudo = "Incorrect Pseudo";
   if (checkErrorType("email")) errors.email = "Email incorrect";
   if (checkErrorType("password"))
-    errors.password = "password should have at least 6 caracteres!";
+    errors.password = "Password should have at least 6 caracteres!";
 
   if (err.code === 11000 && Object.keys(err.keyValue)[0].includes("pseudo"))
-    errors.pseudo = "pseudo already registered";
+    errors.pseudo = "Pseudo already registered";
 
   if (err.code === 11000 && Object.keys(err.keyValue)[0].includes("email"))
     errors.email = "Email already registered";
@@ -17,16 +17,11 @@ module.exports.signUpErrors = (err) => {
   return errors;
 };
 
-module.exports.signInErrors = (err) => {
-  const errors = { email: "", password: "" };
-
-  //Not a good idea to inform which one is wrong,
-  // password or email for security reasons
-  
-  if (err.message.includes("email"))
-    errors.email = "Email and  password doesn't match!";
-  if (err.message.includes("password"))
-    errors.password = "Email and  password doesn't match!";
-
+module.exports.uploadErrors = (err) => {
+  const errors = { format: "", maxSize: "" };
+  if (err.message.includes("Invalid file"))
+    errors.format = "Format imcompatible";
+  if (err.message.includes("Max size"))
+    errors.maxSize = "The file exceeds 500kb";
   return errors;
 };
