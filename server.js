@@ -8,8 +8,18 @@ const app = express();
 const cors = require("cors");
 require("./config/db");
 
+const corsOptions = {
+  origin: process.env.CLIENT_URL,
+  credentials: true,
+  allowedHeaders: ["sessionId", "Content-Type"],
+  exposedHeaders: ["sessionId"],
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+};
+app.use(cors(corsOptions));
+
 //MIDDLEWARES
-app.use(cors());  
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
