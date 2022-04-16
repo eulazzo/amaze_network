@@ -404,6 +404,66 @@
 	 "__v": 0
       }
     ```
+* ### comentPost
+  * Method: PUT
+  * Path: `/api/post/comment-post/:id`
+  * Input
+    ```
+       {
+	"commentId":"625a12c152b44d0b0fd13707",
+	"text":"Editing comment"
+      }
+    ```
+    
+* Output:
+  ```
+      {
+	"_id": "62586a9f9f57d8bcd27f4dd8",
+	"posterId": "625379aa930bdc846ce5b2af",
+	"message": "My first post",
+	"video": "https://www.youtube.com/",
+	"likers": [],
+	"comments": [
+		{
+			"commenterId": "625379aa930bdc846ce5b2af",
+			"commenterPseudo": "eulazzo",
+			"text": "Editing comment",
+			"timestamp": 1650070209021,
+			"_id": "625a12c152b44d0b0fd13707"
+		}
+	],
+	"createdAt": "2022-04-14T18:40:31.469Z",
+	"updatedAt": "2022-04-16T15:20:15.336Z",
+	"__v": 0
+      }
+  ``` 
+  
+  
+  
+* ### comentPost
+  * Method: PUT
+  * Path: `/api/post/comment-post/:id`
+  * Input
+    ```
+     {  "commentId":"625aeeac56ee2c63356d8740"  }
+    ```
+    
+  * Output:
+    ```
+      {
+	"_id": "625aee8056ee2c63356d873a",
+	"posterId": "625379aa930bdc846ce5b2af",
+	"message": "My second post",
+	"video": "https://www.youtube.com/",
+	"likers": [],
+	"comments": [],
+	"createdAt": "2022-04-16T16:27:44.896Z",
+	"updatedAt": "2022-04-16T16:33:45.437Z",
+	"__v": 0
+      }
+     ``` 
+ 
+
 ## Techs used
 
 <table>
