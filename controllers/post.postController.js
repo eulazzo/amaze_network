@@ -42,12 +42,12 @@ module.exports.createPost = async (req, res) => {
   const newPost = new PostModel({
     posterId: req.body.posterId,
     message: req.body.message,
-    picture: req.file,
+    picture: req.file !== null ? `./uploads/posts/${fileName}` : "",
     video: req.body.video,
     likers: [],
     comments: [],
   });
-
+  
   try {
     const post = await newPost.save();
     res.status(200).json(post);
