@@ -5,10 +5,11 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config({ path: "./config/.env" });
 const { checkUser, requireAuth } = require("./middleware/auth.middleware");
 const app = express();
-
+const cors = require("cors");
 require("./config/db");
 
 //MIDDLEWARES
+app.use(cors());  
 app.use(express.json());
 app.use(cookieParser());
 
