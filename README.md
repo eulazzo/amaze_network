@@ -370,6 +370,40 @@
     ```
       {"Message":"Post deleted"}
     ```
+    
+* ### comentPost
+  * Method: POST
+  * Path: `/api/post/comment-post/:id`
+  * Input
+    ```
+       {
+	  "commenterId":"625379aa930bdc846ce5b2af",
+	  "commenterPseudo":"eulazzo",
+	  "text":"This is a comment"
+	}
+    ```
+  * Output:
+    ```
+      {
+	 "_id": "62586a9f9f57d8bcd27f4dd8",
+	 "posterId": "625379aa930bdc846ce5b2af",
+	 "message": "This is a comment",
+	 "video": "https://www.youtube.com/",
+	 "likers": [],
+	 "comments": [
+	 	{
+			"commenterId": "625379aa930bdc846ce5b2af",
+			"commenterPseudo": "eulazzo",
+			"text": "This time i will do this in a right way",
+			"timestamp": 1650070209021,
+			"_id": "625a12c152b44d0b0fd13707"
+		}
+	 ] ,
+	 "createdAt": "2022-04-14T18:40:31.469Z",
+	 "updatedAt": "2022-04-16T00:50:09.025Z",
+	 "__v": 0
+      }
+    ```
 ## Techs used
 
 <table>
