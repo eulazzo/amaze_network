@@ -1,11 +1,9 @@
-import Routers from "./components/Routes";
-
- 
+import Routes from "./components/Routes";
 
 function App() {
   return (
-    <div className="App">
-       <Routers />
+    <div>
+      <Routes />
     </div>
   );
 }

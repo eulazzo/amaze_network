@@ -17,6 +17,17 @@ module.exports.signUpErrors = (err) => {
   return errors;
 };
 
+module.exports.signInErrors = (err) => {
+  const errors = { email: "", password: "" };
+
+  if (err.message.includes("email")) errors.email = "Email not found";
+
+  if (err.message.includes("password"))
+    errors.password = "Password does not match";
+
+  return errors;
+};
+
 module.exports.uploadErrors = (err) => {
   const errors = { format: "", maxSize: "" };
   if (err.message.includes("Invalid file"))
