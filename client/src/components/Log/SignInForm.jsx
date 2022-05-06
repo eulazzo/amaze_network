@@ -5,12 +5,13 @@ const SignInForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const emailError = document.querySelector(".email.error");
-    const passwordError = document.querySelector(".password.error");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
-    axios({
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    await axios({
       method: "post",
       url: `${process.env.REACT_APP_API_URL}api/user/login`,
       withCredentials: true,
@@ -21,8 +22,8 @@ const SignInForm = () => {
     })
       .then((res) => {
         if (res.data.errors) {
-          emailError.innerHTML = res.data.errors.email;
-          passwordError.innerHTML = res.data.errors.password;
+          setEmailError(res.data.errors.email);
+          setPasswordError(res.data.errors.password);
         } else {
           window.location = "/";
         }
@@ -43,7 +44,7 @@ const SignInForm = () => {
         onChange={(e) => setEmail(e.target.value)}
         value={email}
       />
-      <div className="email error"></div>
+      <div className="email error">{emailError}</div>
       <br />
       <label htmlFor="password">Password</label>
       <br />
@@ -54,7 +55,7 @@ const SignInForm = () => {
         onChange={(e) => setPassword(e.target.value)}
         value={password}
       />
-      <div className="password error"></div>
+      <div className="password error">{passwordError}</div>
       <br />
       <input type="submit" value="Login" />
     </form>

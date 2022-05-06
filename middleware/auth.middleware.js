@@ -1,11 +1,11 @@
-const JWT = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 const UserModel = require("../models/user.model");
 
-module.exports.checkUser = async (req, res, next) => {
+module.exports.checkUser = (req, res, next) => {
   const token = req.cookies.jwt;
 
   if (token) {
-    JWT.verify(
+    jwt.verify(
       token,
       process.env.JWT_SECRET_TOKEN,
       async (err, decodedToken) => {
@@ -28,20 +28,22 @@ module.exports.checkUser = async (req, res, next) => {
 
 module.exports.requireAuth = (req, res, next) => {
   const token = req.cookies.jwt;
-
+console.log("value")
   if (token) {
-    JWT.verify(
+    jwt.verify(
       token,
       process.env.JWT_SECRET_TOKEN,
       async (err, decodedToken) => {
-        if (err) console.log(err);
-        else {
+        if (err) {
+          console.log(err);
+          res.send(200).json("No token");
+        } else {
           console.log(decodedToken.id);
           next();
         }
       }
     );
   } else {
-    console.log("No token");
+    console.log("No JWT Token");
   }
 };

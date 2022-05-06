@@ -7,15 +7,20 @@ function App() {
   const [userJwtID, setUserJwtID] = useState(null);
 
   useEffect(() => {
-    const fetchToken = async () => {
-      await axios
-        .get(`${process.env.REACT_APP_API_URL}jwtid`)
-        .then((res) => console.log(res))
-        .catch((_err) => console.log("No Token"));
-    };
-    fetchToken();
+    (async () => {
+      await axios({
+        method: "get",
+        url: `${process.env.REACT_APP_API_URL}jwtid`,
+        withCredentials: true,
+      })
+        .then((res) => {
+          setUserJwtID(res.data);
+        })
+        .catch((_err) => console.log("No token"));
+    })();
   }, [userJwtID]);
-  console.log(userJwtID);
+  
+  console.log(userJwtID)
 
   return (
     <UserIdContext.Provider value={userJwtID}>

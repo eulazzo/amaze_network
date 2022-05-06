@@ -9,7 +9,7 @@ module.exports.signUpErrors = (err) => {
     errors.password = "Password should have at least 6 caracteres!";
 
   if (err.code === 11000 && Object.keys(err.keyValue)[0].includes("pseudo"))
-    errors.pseudo = "Pseudo already registered";
+    errors.pseudo = "Username already registered";
 
   if (err.code === 11000 && Object.keys(err.keyValue)[0].includes("email"))
     errors.email = "Email already registered";

@@ -11,6 +11,7 @@ const createToken = (id) => {
 };
 
 module.exports.signUp = async (req, res) => {
+   
   const { pseudo, email, password } = req.body;
 
   try {
@@ -41,7 +42,7 @@ module.exports.signIn = async (req, res) => {
   }
 };
 
-module.exports.logout = async (req, res) => {
+module.exports.logout = async (_req, res) => {
   res.cookie("jwt", "", { maxAge: 1 });
   res.redirect("/");
 };

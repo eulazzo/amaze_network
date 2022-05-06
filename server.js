@@ -15,8 +15,8 @@ const corsOptions = {
   exposedHeaders: ["sessionId"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,
+  allowedOrigins: "*",
 };
-app.use(cors(corsOptions));
 
 //MIDDLEWARES
 app.use(cors(corsOptions));
@@ -24,8 +24,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 // JWT
-app.get("*", checkUser);
-app.get("/jwtid", requireAuth, (_req, res) => {
+app.get("*", checkUser, () => console.log("printf"));
+app.get("/jwtid", requireAuth, (req, res) => {
+  console.log("printf2");
   res.status(200).send(res.locals.user._id);
 });
 
