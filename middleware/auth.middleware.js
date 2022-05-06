@@ -11,7 +11,7 @@ module.exports.checkUser = (req, res, next) => {
       async (err, decodedToken) => {
         if (err) {
           res.locals.user = null;
-          res.cookie("jwt", "", { maxAge: 1 });
+          // res.cookie("jwt", "", { maxAge: 1 });
           next();
         } else {
           let user = await UserModel.findById(decodedToken.id);
@@ -28,7 +28,7 @@ module.exports.checkUser = (req, res, next) => {
 
 module.exports.requireAuth = (req, res, next) => {
   const token = req.cookies.jwt;
-console.log("value")
+
   if (token) {
     jwt.verify(
       token,

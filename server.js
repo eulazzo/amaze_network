@@ -24,10 +24,10 @@ app.use(express.json());
 app.use(cookieParser());
 
 // JWT
-app.get("*", checkUser, () => console.log("printf"));
-app.get("/jwtid", requireAuth, (req, res) => {
-  console.log("printf2");
-  res.status(200).send(res.locals.user._id);
+app.get("*", checkUser);
+app.get("/jwtid", requireAuth, (_req, res) => {
+  
+  res.status(200).json(res.locals.user._id);
 });
 
 //routes
