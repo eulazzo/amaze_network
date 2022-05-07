@@ -5,7 +5,7 @@ import { UserIdContext } from "../components/AppContext.js";
 
 const Profile = () => {
   const userJwtID = useContext(UserIdContext);
-  console.log(userJwtID);
+ 
 
   return (
     <div className="profil-page">

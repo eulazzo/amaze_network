@@ -19,8 +19,7 @@ function App() {
         .catch((_err) => console.log("No token"));
     })();
   }, [userJwtID]);
-
-  console.log(userJwtID);
+ 
 
   return (
     <UserIdContext.Provider value={userJwtID}>
