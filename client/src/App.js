@@ -3,8 +3,12 @@ import { useEffect, useState } from "react";
 import { UserIdContext } from "./components/AppContext";
 import Routes from "./components/Routes";
 
+import { useDispatch } from "react-redux";
+import { getUser } from "./redux/actions/user.actions";
+
 function App() {
-  const [userJwtID, setUserJwtID] = useState(null);
+  const [userID, setUserID] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
@@ -14,15 +18,16 @@ function App() {
         withCredentials: true,
       })
         .then((res) => {
-          setUserJwtID(res.data);
+          setUserID(res.data);
         })
         .catch((_err) => console.log("No token"));
     })();
-  }, [userJwtID]);
- 
+
+    if (userID) dispatch(getUser(userID));
+  }, [userID]);
 
   return (
-    <UserIdContext.Provider value={userJwtID}>
+    <UserIdContext.Provider value={userID}>
       <Routes />
     </UserIdContext.Provider>
   );
