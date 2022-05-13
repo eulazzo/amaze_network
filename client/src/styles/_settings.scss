@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: "font-1";
   src: url(./assets/fonts/JosefinSans-ExtraLight.ttf);
@@ -71,6 +72,7 @@ input[type="submit"] {
     color: $color-2;
   }
 }
+ 
 input[type="checkbox"] {
   box-shadow: none;
   width: 20px;
@@ -97,3 +99,5 @@ body {
   color: green;
   font-weight: bold;
 }
+
+ 

@@ -1,35 +1,23 @@
 const UserModel = require("../models/user.model");
-const fs = require("fs");
-const { promisify } = require("util");
 const { uploadErrors } = require("../utils/errors");
-const pipeline = promisify(require("stream").pipeline);
 
 module.exports.uploadProfile = async (req, res) => {
   const allowedTypes = ["image/jpg", "image/png", "image/jpeg"];
+  const { imgType, size, userId, img: imgUrl } = req.body;
 
   try {
-    if (!allowedTypes.includes(req.file.detectedMimeType))
-      throw Error("Invalid file");
+    if (!allowedTypes.includes(imgType)) throw Error("Only: .jpg, .png, .jpeg");
 
-    if (req.file.size > 500000) throw Error("Max size: ");
+    if (size > 500000) throw Error("Max Size: 10px");
   } catch (err) {
     const errors = uploadErrors(err);
     return res.status(201).json(errors);
   }
 
-  const fileName = `${req.body.name}.jpg`;
-
-  await pipeline(
-    req.file.stream,
-    fs.createWriteStream(
-      `${__dirname}/../client/public/uploads/profile/${fileName}`
-    )
-  );
-
   try {
     await UserModel.findByIdAndUpdate(
-      req.body.userId,
-      { $set: { picture: "./uploads/profile/" + fileName } },
+      userId,
+      { $set: { picture: imgUrl } },
       { new: true, upsert: true, setDefaultsOnInsert: true }
     )
       .then((docs) => res.status(200).json(docs))

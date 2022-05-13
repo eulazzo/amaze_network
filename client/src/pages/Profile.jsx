@@ -2,15 +2,18 @@ import React, { useContext } from "react";
 import Log from "../components/Log";
 
 import { UserIdContext } from "../components/AppContext.js";
+import { useSelector } from "react-redux";
+import { UpdateProfile } from "../components/profile/UpdateProfile";
 
 const Profile = () => {
   const userJwtID = useContext(UserIdContext);
- 
 
   return (
     <div className="profil-page">
       {userJwtID ? (
-        <h1>Update Page</h1>
+        <>
+          <UpdateProfile />
+        </>
       ) : (
         <div className="log-container">
           <Log signin={false} signup={true} />

@@ -16,6 +16,7 @@
       a {
         transition: 0.1s;
         display: inline-block;
+         
 
         &:before {
           transition: .15s ease;
@@ -52,6 +53,7 @@
 
       .active-left-nav {
         position: relative;
+        
 
         &::after {
           content: "";
