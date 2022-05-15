@@ -3,8 +3,6 @@ const router = require("express").Router();
 const authController = require("../controllers/auth.controller");
 const userController = require("../controllers/user.controllers");
 const uploadController = require("../controllers/upload.controller");
-const multer = require("multer");
-const upload = multer();
 
 //auth
 router.post("/register", authController.signUp);
