@@ -57,7 +57,7 @@ export const followUser = (followerId, idToFollow) => {
       url: `${process.env.REACT_APP_API_URL}api/user/follow/` + followerId,
       data: { idToFollow },
     })
-      .then((res) => {
+      .then((_res) => {
         dispatch({ type: FOLLOW_USER, payload: { idToFollow } });
       })
       .catch((err) => console.log(err));

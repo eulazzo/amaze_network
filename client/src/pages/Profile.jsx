@@ -2,9 +2,8 @@ import React, { useContext } from "react";
 import Log from "../components/Log";
 
 import { UserIdContext } from "../components/AppContext.js";
-import { useSelector } from "react-redux";
-import { UpdateProfile } from "../components/profile/UpdateProfile";
-
+import {UpdateProfile} from '../components/Profile/UpdateProfile'
+ 
 const Profile = () => {
   const userJwtID = useContext(UserIdContext);
 

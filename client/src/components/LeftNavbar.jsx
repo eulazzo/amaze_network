@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-export const LefNavbar = () => {
+export const LeftNavbar = () => {
   const [homeBorder, setHomeBorder] = useState("");
   const [rocketBorder, setRocketBorder] = useState("");
   const [userBorder, setUserBorder] = useState("");

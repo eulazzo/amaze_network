@@ -26,7 +26,6 @@ app.use(cookieParser());
 // JWT
 app.get("*", checkUser);
 app.get("/jwtid", requireAuth, (_req, res) => {
-  
   res.status(200).json(res.locals.user._id);
 });
 

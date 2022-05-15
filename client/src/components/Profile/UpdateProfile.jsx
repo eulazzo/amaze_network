@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateBio } from "../../redux/actions/user.actions";
-import { LefNavbar } from "../LefNavbar";
+
+import { LeftNavbar } from "../LeftNavbar";
 import PopUpModel from "../PopUpModel";
 import { dateParser } from "../Utils";
 import FollowHandler from "./FollowHandler";
@@ -26,7 +27,7 @@ export const UpdateProfile = () => {
 
   return (
     <div className="profil-container">
-      <LefNavbar />
+      <LeftNavbar />
       <h1>{userData?.pseudo} Profile</h1>
       <div className="update-container">
         <div className="left-part">
@@ -106,7 +107,7 @@ export const UpdateProfile = () => {
           </div>
         </div>
       )}
-      {/* {followersPopup && (
+      {followersPopup && (
         <div className="popup-profil-container">
           <div className="modal">
             <h2>Followers</h2>
@@ -117,17 +118,29 @@ export const UpdateProfile = () => {
               &#10005;
             </span>
             <ul>
-              {usersData.map((infoUser) => (
-                <li key={user._id}>
-                  <img src={infoUser.picture} alt="user-pic" />
-                  <h4>{infoUser.pseudo}</h4>
-                  <h2>FOLLOW HANDLER</h2>
-                </li>
-              ))}
+              {usersData?.map((user) => {
+                for (const id of userData.followers) {
+                  if (user._id === id) {
+                    return (
+                      <li key={user._id}>
+                        <img src={user.picture} alt="user-pic" />
+                        <h4>{user.pseudo}</h4>
+                        <div className="follow-handler">
+                          <FollowHandler
+                            idToFollow={user._id}
+                            type={"suggestion"}
+                          />
+                        </div>
+                      </li>
+                    );
+                  }
+                }
+                return null;
+              })}
             </ul>
           </div>
         </div>
-      )} */}
+      )}
     </div>
   );
 };
