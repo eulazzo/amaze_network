@@ -47,7 +47,7 @@ module.exports.createPost = async (req, res) => {
     likers: [],
     comments: [],
   });
-  
+
   try {
     const post = await newPost.save();
     res.status(200).json(post);
@@ -82,19 +82,18 @@ module.exports.likePost = async (req, res) => {
     return res.status(400).json({ "ID unknown: ": req.params.id });
 
   try {
-    await PostModel.findByIdAndUpdate(
-      req.params.id,
-      { $addToSet: { likers: req.body.id } },
-      { new: true }
-    );
-
     await UserModel.findByIdAndUpdate(
       req.body.id,
       { $addToSet: { likes: req.params.id } },
       { new: true }
-    )
-      .then((docs) => res.status(200).json(docs))
-      .catch((err) => res.status(400).send(err));
+    );
+
+    const posts = await PostModel.findByIdAndUpdate(
+      req.params.id,
+      { $addToSet: { likers: req.body.id } },
+      { new: true }
+    );
+    res.status(200).json(posts);
   } catch (error) {
     return res.status(400).send(err);
   }
@@ -105,15 +104,15 @@ module.exports.unlikePost = async (req, res) => {
     return res.status(400).json({ "ID unknown: ": req.params.id });
 
   try {
-    await PostModel.findByIdAndUpdate(
-      req.params.id,
-      { $pull: { likers: req.body.id } },
-      { new: true }
-    );
-
     await UserModel.findByIdAndUpdate(
       req.body.id,
       { $pull: { likes: req.params.id } },
+      { new: true }
+    );
+
+    await PostModel.findByIdAndUpdate(
+      req.params.id,
+      { $pull: { likers: req.body.id } },
       { new: true }
     )
       .then((docs) => res.status(200).json(docs))

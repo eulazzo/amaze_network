@@ -24,7 +24,7 @@ function App() {
     })();
 
     if (userID) dispatch(getUser(userID));
-  }, [userID]);
+  }, [userID, dispatch]);
 
   return (
     <UserIdContext.Provider value={userID}>
