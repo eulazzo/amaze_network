@@ -1,14 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { dateParser, isEmpty } from "../Utils";
 
 import FollowHandler from "../Profile/FollowHandler";
 import LikeButton from "./LikeButton";
+import { updatePostDescription } from "../../redux/actions/post.actions";
+import DeleteCard from "./DeleteCard";
 
 const Card = ({ post }) => {
   const [isLoading, setIsLoading] = useState(true);
   const usersData = useSelector((state) => state.user.usersReducer);
   const userData = useSelector((state) => state.user.userReducer);
+  const [isUpdated, setIsUpdated] = useState(false);
+  const [textUpdated, setTextUpdated] = useState(null);
+  const dispatch = useDispatch();
+
+  const updatedItem = () => {
+    if (textUpdated) {
+      dispatch(updatePostDescription(post._id, textUpdated));
+    }
+    setIsUpdated(false);
+  };
 
   useEffect(() => {
     !isEmpty(usersData[0]) && setIsLoading(false);
@@ -51,7 +63,20 @@ const Card = ({ post }) => {
               </div>
               <span>{dateParser(post.createdAt)}</span>
             </div>
-            <p>{post.message}</p>
+            {!isUpdated && <p>{post.message}</p>}
+            {isUpdated && (
+              <div className="update-post">
+                <textarea
+                  defaultValue={post.message}
+                  onChange={(e) => setTextUpdated(e.target.value)}
+                />
+                <div className="button-container">
+                  <button className="btn" onClick={updatedItem}>
+                    Save Changes
+                  </button>
+                </div>
+              </div>
+            )}
             {post.picture && (
               <img src={post.picture} alt="post-pic" className="card-pic"></img>
             )}
@@ -66,6 +91,14 @@ const Card = ({ post }) => {
                 title={post._id}
               ></iframe>
             )} */}
+            {userData._id === post.posterId && (
+              <div className="button-container">
+                <div onClick={() => setIsUpdated(!isUpdated)}>
+                  <img src="./img/icons/edit.svg" alt="edit" />
+                </div>
+                <DeleteCard id={post._id} />
+              </div>
+            )}
             <div className="card-footer">
               <div className="comment-icon">
                 <img src="./img/icons/message1.svg" alt="comment" />

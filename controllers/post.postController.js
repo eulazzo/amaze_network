@@ -1,10 +1,8 @@
 const PostModel = require("../models/post.model");
 const UserModel = require("../models/user.model");
 
-const fs = require("fs");
 const { promisify } = require("util");
 const { uploadErrors } = require("../utils/errors");
-const pipeline = promisify(require("stream").pipeline);
 
 const ObjectID = require("mongoose").Types.ObjectId;
 module.exports.readPost = (_req, res) => {
@@ -16,7 +14,8 @@ module.exports.readPost = (_req, res) => {
 
 module.exports.createPost = async (req, res) => {
   let fileName;
-  if (req.file !== null) {
+  if (req.file) {
+    console.log(req.file);
     const allowedTypes = ["image/jpg", "image/png", "image/jpeg"];
 
     try {
@@ -30,13 +29,6 @@ module.exports.createPost = async (req, res) => {
     }
 
     fileName = `${req.body.posterId}${Date.now()}.jpg`;
-
-    await pipeline(
-      req.file.stream,
-      fs.createWriteStream(
-        `${__dirname}/../client/public/uploads/posts/${fileName}`
-      )
-    );
   }
 
   const newPost = new PostModel({
@@ -60,13 +52,18 @@ module.exports.updatePost = async (req, res) => {
     return res.status(400).json({ "ID unknown: ": req.params.id });
 
   const updatedPost = { message: req.body.message };
-  await PostModel.findByIdAndUpdate(
-    req.params.id,
-    { $set: updatedPost },
-    { new: true }
-  )
-    .then((docs) => res.status(200).json(docs))
-    .catch((err) => res.status(400).send({ message: err }));
+
+  try {
+    const updatedPostMessage = await PostModel.findByIdAndUpdate(
+      req.params.id,
+      { $set: updatedPost },
+      { new: true }
+    );
+
+    res.status(200).json(updatedPostMessage);
+  } catch (error) {
+    res.status(400).send({ message: error });
+  }
 };
 module.exports.deletePost = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
