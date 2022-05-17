@@ -5,14 +5,16 @@ import { dateParser, isEmpty } from "../Utils";
 import FollowHandler from "../Profile/FollowHandler";
 import LikeButton from "./LikeButton";
 import { updatePostDescription } from "../../redux/actions/post.actions";
-import DeleteCard from "./DeleteCard";
+import DeleteCard from "./DeleteCard/DeleteCard";
+import CardComment from "./CardComments";
 
 const Card = ({ post }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const usersData = useSelector((state) => state.user.usersReducer);
-  const userData = useSelector((state) => state.user.userReducer);
   const [isUpdated, setIsUpdated] = useState(false);
+  const [showComments, setShowComments] = useState(false);
   const [textUpdated, setTextUpdated] = useState(null);
+  const userData = useSelector((state) => state.user.userReducer);
+  const usersData = useSelector((state) => state.user.usersReducer);
   const dispatch = useDispatch();
 
   const updatedItem = () => {
@@ -77,7 +79,7 @@ const Card = ({ post }) => {
                 </div>
               </div>
             )}
-            {post.picture && (
+            {post.picture !== undefined && (
               <img src={post.picture} alt="post-pic" className="card-pic"></img>
             )}
             {/* {post.video && (
@@ -101,12 +103,17 @@ const Card = ({ post }) => {
             )}
             <div className="card-footer">
               <div className="comment-icon">
-                <img src="./img/icons/message1.svg" alt="comment" />
+                <img
+                  onClick={() => setShowComments(!showComments)}
+                  src="./img/icons/message1.svg"
+                  alt="comment"
+                />
                 <span>{post.comments.length}</span>
               </div>
               <LikeButton post={post} />
               <img src="./img/icons/share.svg" alt="share" />
             </div>
+            {showComments && <CardComment post={post} />}
           </div>
         </>
       )}

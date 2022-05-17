@@ -10,6 +10,11 @@ export const CREATE_POST = "CREATE_POST";
 export const LIKE_POST = "LIKE_POST";
 export const UNLIKE_POST = "UNLIKE_POST";
 
+//Comments
+export const ADD_COMMENT = "ADD_COMMENT";
+export const EDIT_COMMENT = "EDIT_COMMENT";
+export const DELETE_COMMENT = "DELETE_COMMENT";
+
 export const getPosts = (num = 5) => {
   return async (dispatch) => {
     try {
@@ -76,6 +81,50 @@ export const deletePost = (postId) => {
         url: `${process.env.REACT_APP_API_URL}api/post/${postId}`,
       });
       dispatch({ type: DELETE_POST, payload: postId });
+    } catch (err) {
+      return console.log(err);
+    }
+  };
+};
+
+export const addComment = (postId, commenterId, text, commenterPseudo) => {
+  return async (dispatch) => {
+    try {
+      await axios({
+        method: "post",
+        url: `${process.env.REACT_APP_API_URL}api/post/comment-post/${postId}`,
+        data: { commenterId, text, commenterPseudo },
+      });
+      dispatch({ type: ADD_COMMENT, payload: postId });
+    } catch (err) {
+      return console.log(err);
+    }
+  };
+};
+export const editComment = (postId, commentId, text) => {
+  return async (dispatch) => {
+    try {
+      await axios({
+        method: "put",
+        url: `${process.env.REACT_APP_API_URL}api/post/edit-comment-post/${postId}`,
+        data: { commentId, text },
+      });
+      dispatch({ type: EDIT_COMMENT, payload: {postId,commentId,text} });
+    } catch (err) {
+      return console.log(err);
+    }
+  };
+};
+
+export const deleteComment = (postId, commentId) => {
+  return async (dispatch) => {
+    try {
+      await axios({
+        method: "DELETE",
+        url: `${process.env.REACT_APP_API_URL}api/post/delete-comment-post/${postId}`,
+        data: { commentId },
+      });
+      dispatch({ type: DELETE_COMMENT, payload: {postId,commentId} });
     } catch (err) {
       return console.log(err);
     }

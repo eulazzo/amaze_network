@@ -1,20 +1,27 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deletePost } from "../../redux/actions/post.actions";
+import { deletePost } from "../../../redux/actions/post.actions";
 import "reactjs-popup/dist/index.css";
-import "./style.css";
 import Popup from "reactjs-popup";
+import "./style.css";
 
 const DeleteCard = ({ id }) => {
   const dispatch = useDispatch();
 
   const deleteQuote = () => {
     dispatch(deletePost(id));
+    window.location.reload();
   };
   return (
-    <Popup trigger={<button className="button"> 
-    <img className="button" src="./img/icons/trash.svg" alt="" />
-    </button>} modal nested>
+    <Popup
+      trigger={
+        <span className="button btnTrash ">
+          <img className="trashIcon" src="./img/icons/trash.svg" alt="" />
+        </span>
+      }
+      modal
+      nested
+    >
       {(close) => (
         <div className="modal">
           <button className="close" onClick={close}>
