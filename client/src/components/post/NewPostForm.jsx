@@ -1,43 +1,71 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { getPosts } from "../../redux/actions/post.actions";
+import { addPost, getPosts } from "../../redux/actions/post.actions";
 import { isEmpty, timestampParser } from "../Utils";
+
+const CLOUDYNARY_URL = process.env.REACT_APP_CLOUDYNARY;
 
 const NewPostForm = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [message, setMessage] = useState("");
   const [postPicture, setPostPicture] = useState("");
   const [video, setVideo] = useState("");
+  const [noMessage, setNoMessage] = useState("");
   const [file, setFile] = useState(null);
   const userData = useSelector((state) => state.user.userReducer);
+  const dispatch = useDispatch();
 
   const handlePost = async () => {
-    // if (message || postPicture || video) {
-    //   const data = new FormData();
-    //   data.append("posterId", userData._id);
-    //   data.append("message", message);
-    //   if (file) data.append("file", file);
-    //   data.append("video", video);
+    if (message || postPicture || video) {
+      const data = new FormData();
+      data.append("posterId", userData._id);
+      data.append("message", message);
 
-    //   await dispatch(addPost(data));
-    //   dispatch(getPosts());
-    //   cancelPost();
-    // } else {
-    //   alert("Veuillez entrer un message");
-    // }
+      data.append("video", video);
+
+      if (file) {
+        data.append("file", file);
+        data.append("upload_preset", "uploads");
+        const size = file.size;
+        const imgType = file.type;
+        const { url } = (await axios.post(CLOUDYNARY_URL, data)).data;
+
+        dispatch(
+          addPost({
+            img: url,
+            posterId: userData._id,
+            imgType,
+            size,
+            video,
+            message,
+          })
+        );
+        dispatch(getPosts());
+      } else {
+        dispatch(addPost(data));
+        dispatch(getPosts());
+        cancelPost();
+        setNoMessage("");
+      }
+    } else {
+      setNoMessage("Please enter a message");
+    }
   };
 
   const handlePicture = (e) => {
     setPostPicture(URL.createObjectURL(e.target.files[0]));
     setFile(e.target.files[0]);
     setVideo("");
+    setNoMessage("");
   };
 
   const cancelPost = () => {
     setMessage("");
     setPostPicture("");
     setVideo("");
+    setNoMessage("");
   };
 
   useEffect(() => {
@@ -98,7 +126,10 @@ const NewPostForm = () => {
               name="message"
               id="message"
               placeholder="What's the new?"
-              onChange={(e) => setMessage(e.target.value)}
+              onChange={(e) => {
+                setMessage(e.target.value);
+                setNoMessage("");
+              }}
               value={message}
             ></textarea>
             {(message.length || postPicture.length || video.length > 20) && (
@@ -148,6 +179,11 @@ const NewPostForm = () => {
                   <button onClick={() => setVideo("")}>Delete video</button>
                 )}
               </div>
+              {noMessage && (
+                <span style={{ color: "gray", marginTop: "5px" }}>
+                  {noMessage}
+                </span>
+              )}
               <div className="btn-send">
                 {(message.length ||
                   postPicture.length ||

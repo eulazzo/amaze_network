@@ -9,7 +9,7 @@ const UploadImg = () => {
   const { _id: userId } = useSelector((state) => state.user.userReducer);
   const [file, setFile] = useState(null);
   const dispatch = useDispatch();
-  
+
   const handlerPicture = async (e) => {
     e.preventDefault();
 
