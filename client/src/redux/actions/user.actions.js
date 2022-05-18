@@ -6,6 +6,8 @@ export const UPDATE_BIO = "UPDATE_BIO";
 export const UNFOLLOW_USER = "UNFOLLOW_USER";
 export const FOLLOW_USER = "FOLLOW_USER";
 
+const GET_USER_ERRORS = "GET_USER_ERRORS";
+
 export const getUser = (uid) => {
   return async (dispatch) => {
     try {

@@ -8,6 +8,9 @@ import { isEmpty, timestampParser } from "../Utils";
 const CLOUDYNARY_URL = process.env.REACT_APP_CLOUDYNARY;
 
 const NewPostForm = () => {
+  
+  //TODO: THIS FUNCTION HAVE TO BE REFACTORED (DOESN'T LOOK GOOD AT ALL | cognitive complexity)
+
   const [isLoading, setIsLoading] = useState(true);
   const [message, setMessage] = useState("");
   const [postPicture, setPostPicture] = useState("");
@@ -15,6 +18,8 @@ const NewPostForm = () => {
   const [noMessage, setNoMessage] = useState("");
   const [file, setFile] = useState(null);
   const userData = useSelector((state) => state.user.userReducer);
+  const error = useSelector((state) => state.user.errorReducer.postError);
+
   const dispatch = useDispatch();
 
   const handlePost = async () => {
@@ -22,7 +27,6 @@ const NewPostForm = () => {
       const data = new FormData();
       data.append("posterId", userData._id);
       data.append("message", message);
-
       data.append("video", video);
 
       if (file) {
@@ -30,11 +34,11 @@ const NewPostForm = () => {
         data.append("upload_preset", "uploads");
         const size = file.size;
         const imgType = file.type;
-        const { url } = (await axios.post(CLOUDYNARY_URL, data)).data;
 
+        const { url } = (await axios.post(CLOUDYNARY_URL, data)).data;
         dispatch(
           addPost({
-            img: url,
+            imgURL: url,
             posterId: userData._id,
             imgType,
             size,
@@ -43,11 +47,11 @@ const NewPostForm = () => {
           })
         );
         dispatch(getPosts());
+        cancelPost();
       } else {
-        dispatch(addPost(data));
+        dispatch(addPost({ posterId: userData._id, message }));
         dispatch(getPosts());
         cancelPost();
-        setNoMessage("");
       }
     } else {
       setNoMessage("Please enter a message");
@@ -179,6 +183,10 @@ const NewPostForm = () => {
                   <button onClick={() => setVideo("")}>Delete video</button>
                 )}
               </div>
+
+              {!isEmpty(error.format) && <p>{error.format}</p>}
+              {!isEmpty(error.maxSize) && <p>{error.maxSize}</p>}
+
               {noMessage && (
                 <span style={{ color: "gray", marginTop: "5px" }}>
                   {noMessage}

@@ -20,18 +20,18 @@ export const DELETE_COMMENT = "DELETE_COMMENT";
 export const GET_POST_ERRORS = "GET_POST_ERRORS";
 
 export const addPost = (data) => {
-  console.log(data);
   return (dispatch) => {
-    return axios.post(`${process.env.REACT_APP_API_URL}api/post`, data);
+    return axios
+      .post(`${process.env.REACT_APP_API_URL}api/post`, data)
+
+      .then((res) => {
+        if (res.data.errors) {
+          dispatch({ type: GET_POST_ERRORS, payload: res.data.errors });
+        } else {
+          dispatch({ type: GET_POST_ERRORS, payload: "" });
+        }
+      });
   };
-  // .then((res) => {
-  //   if (res.data.errors) {
-  //     dispatch({ type: GET_POST_ERRORS, payload: res.data.errors });
-  //   } else {
-  //     dispatch({ type: GET_POST_ERRORS, payload: "" });
-  //   }
-  // });
-  // };
 };
 
 export const getPosts = (num = 5) => {

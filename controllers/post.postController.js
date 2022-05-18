@@ -13,34 +13,22 @@ module.exports.readPost = (_req, res) => {
 };
 
 module.exports.createPost = async (req, res) => {
-  const { 
-      imgType, 
-      size, 
-      img: imgUrl,
-      posterId, 
-      message, 
-      video 
-  } = req.body;
-
-  if (req.file) {
+  if (req.body.imgURL) {
     const allowedTypes = ["image/jpg", "image/png", "image/jpeg"];
-
     try {
-      if (!allowedTypes.includes(imgType))
-        throw Error("Only: .jpg, .png, .jpeg");
-
-      if (size > 500000) throw Error("Max Size: 10px");
+      if (!allowedTypes.includes(req.body.imgType)) throw Error("invalid file");
+      if (req.body.size > 500000) throw Error("max size");
     } catch (err) {
       const errors = uploadErrors(err);
-      return res.status(201).json(errors);
+      return res.status(201).json({ errors });
     }
   }
 
   const newPost = new PostModel({
-    posterId: posterId,
-    message: message,
-    picture: imgUrl || "",
-    video: video,
+    posterId: req.body.posterId,
+    message: req.body.message,
+    picture: req.body.imgURL || "",
+    video: req.body.video || "",
     likers: [],
     comments: [],
   });

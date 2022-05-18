@@ -20,11 +20,15 @@ const UploadImg = () => {
     const size = file.size;
     const imgType = file.type;
 
-    try {
-      const { url } = (await axios.post(CLOUDYNARY_URL, data)).data;
-      dispatch(setProfilePicture({ img: url, userId, imgType, size }));
-    } catch (err) {
-      console.log(err);
+    const ALLOWED_IMG_TYPE = ["image/jpg", "image/png", "image/jpeg"];
+
+    if (ALLOWED_IMG_TYPE.includes(imgType)) {
+      try {
+        const { url } = (await axios.post(CLOUDYNARY_URL, data)).data;
+        dispatch(setProfilePicture({ img: url, userId, imgType, size }));
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 
