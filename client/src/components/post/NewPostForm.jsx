@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { getPosts } from "../../redux/actions/post.actions";
 import { isEmpty, timestampParser } from "../Utils";
 
 const NewPostForm = () => {
@@ -11,19 +12,54 @@ const NewPostForm = () => {
   const [file, setFile] = useState(null);
   const userData = useSelector((state) => state.user.userReducer);
 
-  useEffect(() => {
-    if (!isEmpty(userData)) setIsLoading(false);
-  }, [userData]);
+  const handlePost = async () => {
+    // if (message || postPicture || video) {
+    //   const data = new FormData();
+    //   data.append("posterId", userData._id);
+    //   data.append("message", message);
+    //   if (file) data.append("file", file);
+    //   data.append("video", video);
 
-  const handlePicture = () => {};
-  const handlePost = () => {};
+    //   await dispatch(addPost(data));
+    //   dispatch(getPosts());
+    //   cancelPost();
+    // } else {
+    //   alert("Veuillez entrer un message");
+    // }
+  };
+
+  const handlePicture = (e) => {
+    setPostPicture(URL.createObjectURL(e.target.files[0]));
+    setFile(e.target.files[0]);
+    setVideo("");
+  };
+
   const cancelPost = () => {
     setMessage("");
     setPostPicture("");
     setVideo("");
   };
 
-  //7:52min:21
+  useEffect(() => {
+    if (!isEmpty(userData)) setIsLoading(false);
+
+    const handleVideo = () => {
+      let findLink = message.split(" ");
+      for (let i = 0; i < findLink.length; i++) {
+        if (
+          findLink[i].includes("https://www.yout") ||
+          findLink[i].includes("https://yout")
+        ) {
+          let embed = findLink[i].replace("watch?v=", "embed/");
+          setVideo(embed.split("&")[0]);
+          findLink.splice(i, 1);
+          setMessage(findLink.join(" "));
+          setPostPicture("");
+        }
+      }
+    };
+    handleVideo();
+  }, [userData, message, video]);
 
   return (
     <div className="post-container">
