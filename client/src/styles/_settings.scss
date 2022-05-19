@@ -16,15 +16,39 @@ $font-1: "font-1", sans-serif;
 $font-2: "font-2", serif;
 $font-3: "font-3", serif;
 
-$color-1: #ff7b77;
-$color-2: #ffd0c4;
-$color-3: rgb(0, 22, 44);
-$color-4: #fdeeee;
-$black: rgb(40, 40, 40);
-$white: rgb(253, 253, 253);
-$shadow: rgb(219, 218, 218);
+// $color-1: #ff7b77;
+// $color-2: #ffd0c4;
+// $color-3: rgb(0, 22, 44);
+// $color-4: #fdeeee;
+// $black: rgb(40, 40, 40);
+// $white: rgb(253, 253, 253);
+// $shadow: rgb(219, 218, 218);
+
  
 
+// $color-1: #9932CC;
+// $color-2: #9932CC;
+// $color-3: rgb(0, 22, 44);
+// $color-4: #e5e4e4;
+// $black: rgb(40, 40, 40);
+// $white: rgb(253, 253, 253);
+// $shadow: rgb(219, 218, 218);
+ 
+// $color-1: #DEEFE7;
+// $color-2: #002333;
+// $color-3: #DEEFE7;
+// $color-4: #159A9C;
+// $black: rgb(40, 40, 40);
+// $white: #B4BEC9;
+// $shadow: #10dde0;
+
+$color-1: #10dde0;
+$color-2: #222;
+$color-3: #050606;
+$color-4: #fafafa;
+$black: rgb(40, 40, 40);
+$white: #f3f3f3;
+$shadow: #10dde0;
 
 * {
   margin: 0;
@@ -49,7 +73,7 @@ textarea {
   border-radius: 20px;
   width: 270px;
   font-family: $font-1;
-  background: $white;
+  background: #fff;
 }
 textarea {
   &:focus {
@@ -90,8 +114,11 @@ i {
 body {
   font-family: $font-2;
   line-height: 1.4rem;
-  background: $white;
-  color: $color-3;
+  // background: $white;
+  background-color: #FFFFFF;
+
+  // color: $color-3;
+  color: #000;
 }
 .error {
   color: red;

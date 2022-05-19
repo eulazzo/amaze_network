@@ -1,7 +1,10 @@
 .card-container {
   display: grid;
   grid-template-columns: 66px 1fr;
-  border: 2px solid $color-2;
+  // border: 1px solid $color-2;
+  // box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   margin: 10px;
   padding: 16px;
   border-radius: 20px;
@@ -25,6 +28,7 @@
   }
 
   .card-left {
+    
     img {
       height: 52px;
       width: 52px;
@@ -54,6 +58,7 @@
       justify-content: space-between;
       margin: 2px 0 4px;
       min-height: 34px;
+      
       @media screen and(max-width: 590px) {
         margin: 12px 0 14px;
       }

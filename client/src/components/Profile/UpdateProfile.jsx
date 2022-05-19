@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateBio } from "../../redux/actions/user.actions";
 
 import { LeftNavbar } from "../LeftNavbar";
-import PopUpModel from "../PopUpModel";
 import { dateParser } from "../Utils";
 import FollowHandler from "./FollowHandler";
 import UploadImg from "./UploadImg";

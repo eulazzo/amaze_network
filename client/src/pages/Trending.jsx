@@ -10,11 +10,10 @@ import FriendsHint from "../components/Profile/FriendsHint";
 const Trending = () => {
   const uid = useContext(UserIdContext);
   const trendList = useSelector((state) => state.user.trendingReducer);
-
+ 
   return (
     <div className="trending-page">
       <LeftNavbar />
-  
       <div className="main">
         <ul>
           {!isEmpty(trendList[0]) &&

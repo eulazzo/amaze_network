@@ -17,7 +17,7 @@
   }
 
   .connection-form {
-    border: none;
+ 
     background: $color-4;
     min-width: 490px;
     width: 90%;
@@ -130,7 +130,8 @@
     }
 
     > div {
-      background: $color-4;
+      // background: $color-4
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
       border-radius: 20px;
       padding: 30px;
       padding-bottom: 100px;

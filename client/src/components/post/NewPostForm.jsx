@@ -114,7 +114,7 @@ const NewPostForm = () => {
                 {(userData.followers && userData.followers.length) || 0}
               </span>{" "}
               <span>
-                Followers
+                Follower
                 {userData.followers && userData.followers.length > 1 && "s"}
               </span>
             </p>
