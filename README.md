@@ -1,15 +1,13 @@
 
 
 <h1 align="center">
-  Dali Network 
+  Amaze Network 
 </h1>
   
  
 
 <p align="center" >
   <a href="#about"> About </a> &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
-  <a href="#realtime-chat">Realtime chat</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#application-features">Gifs</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#getting-started">Getting started </a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#techs">Techs</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#license">License</a>
@@ -25,8 +23,9 @@
   <img src="https://img.shields.io/static/v1?label=license&message=MIT&color=1877f2&labelColor=008000" alt="License">
 </p>
 
+ ![Implly CHAT GIF]( https://res.cloudinary.com/toppo/image/upload/v1652989558/uploads/AmazeNetwork_o8bhdz.png)
 
-# Dali Network 
+# Amaze Network
 
 ## DOCUMENTATION 
 
