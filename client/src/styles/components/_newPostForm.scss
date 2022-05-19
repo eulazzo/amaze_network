@@ -5,10 +5,9 @@
   position: relative;
   background: $color-4;
   // box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  // box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-  // box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  // box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+ 
+  border-top:solid rgba(100, 100, 111, 0.04) ;
 
   i {
     font-size: 1.5rem;
@@ -52,6 +51,9 @@
 
     textarea {
       height: 62px;
+      background-color:  white;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+
       width: 100%;
       font-size: 1.4rem;
       padding: 12px 15px;
@@ -155,7 +157,6 @@
           transform: translate(-16px, -3px);
           opacity: 0;
           cursor: pointer;
-
           &::-webkit-file-upload-button {
             cursor: pointer;
           }
@@ -178,6 +179,8 @@
           }
         }
         .send {
+          background: $white;
+          color: $color-1;
           &:hover {
             letter-spacing: 1px;
           }

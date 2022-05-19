@@ -34,7 +34,7 @@ const SignInForm = () => {
   };
 
   return (
-    <form action="" onSubmit={handleLogin} id="sign-up-form">
+    <form action="" onSubmit={handleLogin} id="sign-up-form ">
       <label htmlFor="email">Email</label>
       <br />
       <input
@@ -57,7 +57,11 @@ const SignInForm = () => {
       />
       <div className="password error">{passwordError}</div>
       <br />
-      <input type="submit" value="Login" />
+      <input
+        style={{ color: "#000", fontWeight: "500" }}
+        type="submit"
+        value="Login"
+      />
     </form>
   );
 };

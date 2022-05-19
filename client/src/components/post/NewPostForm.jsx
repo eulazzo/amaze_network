@@ -100,7 +100,7 @@ const NewPostForm = () => {
       ) : (
         <>
           <div className="data">
-            <p>
+            {/* <p>
               <span>
                 {(userData.following && userData.following.length) || 0}
               </span>{" "}
@@ -117,7 +117,7 @@ const NewPostForm = () => {
                 Follower
                 {userData.followers && userData.followers.length > 1 && "s"}
               </span>
-            </p>
+            </p> */}
           </div>
 
           <NavLink exact to="/profile">

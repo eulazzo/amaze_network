@@ -122,7 +122,11 @@ const SignUpForm = () => {
             </a>
           </label>
           <div className="terms error">{termsError}</div>
-          <input type="submit" value={"Validate subscription"} />
+          <input
+            type="submit"
+            style={{ color: "#000", fontWeight: "500" }}
+            value={"Validate subscription"}
+          />
         </form>
       )}
     </>

@@ -67,7 +67,7 @@ const EditDeleteComment = ({ comment, postId }) => {
             >
               <img src="./img/icons/trash.svg" alt="delete" />
             </span>
-            <input type="submit" value={"Save"} />
+            <input type="submit" style={{color:"#fff"}} value={"Save"} />
           </div>
         </form>
       )}

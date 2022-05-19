@@ -7,6 +7,7 @@ import LikeButton from "./LikeButton";
 import { updatePostDescription } from "../../redux/actions/post.actions";
 import DeleteCard from "./DeleteCard/DeleteCard";
 import CardComment from "./CardComments";
+import { BiEdit } from "react-icons/bi";
 
 const Card = ({ post }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -94,10 +95,21 @@ const Card = ({ post }) => {
               ></iframe>
             )} */}
             {userData._id === post.posterId && (
-              <div className="button-container">
-                <div onClick={() => setIsUpdated(!isUpdated)}>
-                  <img src="./img/icons/edit.svg" alt="edit" />
-                </div>
+              <div
+                className="button-container"
+                style={{
+                  display: "flex",
+                  cursor: "pointer",
+                  alignItems: "center",
+                  backgroundColor: "#fafafa",
+                }}
+              >
+                <BiEdit
+                  onClick={() => setIsUpdated(!isUpdated)}
+                  color="#000"
+                  size={"20px"}
+                  className="editButton"
+                />
                 <DeleteCard id={post._id} />
               </div>
             )}

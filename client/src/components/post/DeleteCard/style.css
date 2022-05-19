@@ -36,8 +36,12 @@
   background-color: rgb(87, 109, 253);
   color:#fff;
 } 
-.btnTrash{
-  background-color: #ffd0c4;
+.deleteButton{
+  background-color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
   display: flex;
   align-items: center;
   border-radius: 25px;
@@ -45,9 +49,7 @@
   cursor: pointer;
   color:#fff;
 }
-.btnTrash:hover{
-  background-color: #ff7b77;
-}
+ 
 .trashIcon{
   width: 20px;
   height: 20px;

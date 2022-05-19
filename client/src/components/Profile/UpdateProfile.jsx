@@ -43,7 +43,10 @@ export const UpdateProfile = () => {
                   {userData?.bio ||
                     "Don't allow it anyone defines what you can or can't achieve"}
                 </p>
-                <button onClick={() => setUpdateForm(!updateForm)}>
+                <button
+                  style={{ color: "#fff" }}
+                  onClick={() => setUpdateForm(!updateForm)}
+                >
                   Change Bio
                 </button>
               </>
@@ -58,7 +61,9 @@ export const UpdateProfile = () => {
                   }
                   ref={bio}
                 ></textarea>
-                <button onClick={handlerUpdate}>Save Changes</button>
+                <button style={{ color: "#fff" }} onClick={handlerUpdate}>
+                  Save Changes
+                </button>
               </>
             )}
           </div>

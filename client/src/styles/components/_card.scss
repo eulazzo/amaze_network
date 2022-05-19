@@ -134,11 +134,14 @@
       .button-container {
         .btn {
           background: $color-2;
+          color:$color-4;
           width: 240px;
           transform: translateY(-3px);
 
           &:hover {
             background: $color-1;
+         
+
             width: 250px;
             letter-spacing: 1px;
           }
@@ -401,7 +404,6 @@
     }
     .button-container {
       text-align: right;
-
       button {
         margin: 0;
         margin-left: 5px;

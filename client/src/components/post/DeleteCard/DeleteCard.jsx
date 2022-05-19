@@ -4,6 +4,7 @@ import { deletePost } from "../../../redux/actions/post.actions";
 import "reactjs-popup/dist/index.css";
 import Popup from "reactjs-popup";
 import "./style.css";
+import { AiOutlineDelete } from "react-icons/ai";
 
 const DeleteCard = ({ id }) => {
   const dispatch = useDispatch();
@@ -15,8 +16,8 @@ const DeleteCard = ({ id }) => {
   return (
     <Popup
       trigger={
-        <span className="button btnTrash ">
-          <img className="trashIcon" src="./img/icons/trash.svg" alt="" />
+        <span className="deleteButton">
+          <AiOutlineDelete color="black" size={"20px"} />
         </span>
       }
       modal
@@ -45,6 +46,7 @@ const DeleteCard = ({ id }) => {
             ></Popup>
             <button
               className="button"
+              style={{ color: "#000" }}
               onClick={() => {
                 deleteQuote();
                 close();
