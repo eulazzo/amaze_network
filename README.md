@@ -1,15 +1,13 @@
 
 
 <h1 align="center">
-  Dali Network 
+  Amaze Network 
 </h1>
   
  
 
 <p align="center" >
   <a href="#about"> About </a> &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
-  <a href="#realtime-chat">Realtime chat</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#application-features">Gifs</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#getting-started">Getting started </a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#techs">Techs</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#license">License</a>
@@ -26,7 +24,7 @@
 </p>
 
 
-# Dali Network 
+# Amaze Network
 
 ## DOCUMENTATION 
 
