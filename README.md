@@ -23,6 +23,7 @@
   <img src="https://img.shields.io/static/v1?label=license&message=MIT&color=1877f2&labelColor=008000" alt="License">
 </p>
 
+ ![Implly CHAT GIF]( https://res.cloudinary.com/toppo/image/upload/v1652989558/uploads/AmazeNetwork_o8bhdz.png)
 
 # Amaze Network
 
