@@ -45,8 +45,10 @@ nav {
         font-family: $font-3;
       }
       img {
-        height: 26px;
-        width: 26px;
+        height: 40px;
+        width: 40px;
+        background-color: $white;
+        border-radius: 20px;
       }
     }
     
@@ -60,6 +62,9 @@ nav {
       
       .welcome {
         transform: translateY(2px);
+        border-bottom: 0.05px solid $color-2;
+        padding: 1px;
+        margin-right: 5px;
 
         @media screen and(max-width: 590px) {
           display: none;
@@ -76,6 +81,11 @@ nav {
       li {
         
         img {
+          
+          // border-top-right-radius: 10px;
+          // border-bottom-right-radius: 10px;
+          // background-color: $white;
+
           height: 24px;
           width: 24px;
           cursor: pointer;

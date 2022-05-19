@@ -15,7 +15,7 @@ const Navbar = () => {
         <div className="logo">
           <Link to="/">
             <div className="logo">
-              <img src="./img/icon.png" alt="Logo Amaze Network" />
+              <img src="./img/LogoII.svg" alt="Logo Amaze Network" />
               <h3>Amaze</h3>
             </div>
           </Link>
