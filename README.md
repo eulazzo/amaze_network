@@ -27,6 +27,11 @@
 
 # Amaze Network
 
+## TODO:
+  * Refactor some components
+  * Share post
+  * Search for a post 
+
 ## DOCUMENTATION 
 
 * Clone this repo;
