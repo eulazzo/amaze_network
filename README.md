@@ -27,6 +27,7 @@
 
 # Amaze Network
 
+## Not finished yet
 ## TODO:
   * Refactor some components
   * Share post
