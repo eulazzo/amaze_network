@@ -26,8 +26,7 @@
  ![Implly CHAT GIF]( https://res.cloudinary.com/toppo/image/upload/v1652989558/uploads/AmazeNetwork_o8bhdz.png)
 
 # Amaze Network
-
-## Not finished yet
+ 
 ## TODO:
   * Refactor some components
   * Share post
