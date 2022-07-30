@@ -27,6 +27,8 @@
 
 # Amaze Network
  
+## You can see the project on Youtube here: <a href="https://www.youtube.com/watch?v=-KK-pNCImv8">Link YouTube</a>
+ 
 ## TODO:
   * Refactor some components
   * Share post
